@@ -1,1 +1,1 @@
-Finance App es una aplicacion web desarrollada con React y Bootstrap.
+Finance App is an web app developed whit React and Bootstrap.
