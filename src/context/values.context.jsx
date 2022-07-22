@@ -21,11 +21,3 @@ export const ValuesProvider = ({ children }) => {
     <ValuesContext.Provider value={values}>{children}</ValuesContext.Provider>
   );
 };
-
-// const getValues = async () => {
-//     const values = await getValuesFromDatabase();
-//     console.log(values);
-//     setValues(values);
-//   };
-//   getValues();
-//   console.log(values);
