@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
-import { getItemsFromDatabase } from "../../utils/firebase.utils";
-
-const formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2,
-});
+import { ValuesContext } from "../../context/values.context";
 
 const Balance = () => {
-  const [balance, setBalance] = useState([]);
+  const values = useContext(ValuesContext);
+  const [valuesToShow, setValuesToShow] = useState({});
 
   useEffect(() => {
-    getItemsFromDatabase();
-  }, []);
+    setValuesToShow(values);
+  }, [values, valuesToShow]);
 
   return (
     <div className="mt-4">
@@ -25,39 +20,11 @@ const Balance = () => {
       </div>
 
       <div className="">
-        <button onClick={getItemsFromDatabase}>test</button>
-
-        {/* {balance.map((item, i) => {
-        
-        })} */}
+        <button>test</button>
+        {Object.keys(valuesToShow).map((motive) => console.log(motive))}
       </div>
     </div>
   );
 };
 
 export default Balance;
-
-// if (item.tipo === "earn") {
-//   return (
-//     <li key={i + 1} className="">
-//       <p className="">{item.motivo}</p>
-//       <p className="">{formatter.format(item.importe)}</p>
-//       <button
-//         type="submit"
-//         className="btn btn-light btn-sm"
-//         value={i}
-//       >
-//         X
-//       </button>
-//     </li>
-//   );
-// }
-// return (
-//   <li key={i + 1} className="">
-//     <p className="">{item.motivo}</p>
-//     <p className="">{formatter.format(item.importe)}</p>
-//     <button type="submit" className="" value={i}>
-//       X
-//     </button>
-//   </li>
-// );

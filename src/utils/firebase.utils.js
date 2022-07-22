@@ -27,17 +27,18 @@ const analytics = getAnalytics(app);
 
 export const db = getFirestore();
 
-export const createOrUpdateData = async (itemToAdd) => {
+export const createOrUpdateValues = async (itemToAdd) => {
   console.log(itemToAdd);
   const docRef = await addDoc(collection(db, "flor"), itemToAdd); //genera automaticamente el ID del documento
   console.log("Document written with ID: ", docRef.id);
 };
 
-export const getItemsFromDatabase = async () => {
+export const getValuesFromDatabase = async () => {
   const collectionRef = collection(db, "flor");
   const querySnapshot = await getDocs(collectionRef);
-  querySnapshot.forEach((doc) => {
-    console.log(doc.data());
-    console.log(doc.id);
-  });
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    acc[docSnapshot.id] = docSnapshot.data();
+    return acc;
+  }, {});
+  return categoryMap;
 };

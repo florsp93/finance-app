@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import FormInput from "../form-input/form-input.component";
-import { createOrUpdateData } from "../../utils/firebase.utils";
+import { createOrUpdateValues } from "../../utils/firebase.utils";
 
 const defaultValues = {
   motive: "",
@@ -21,7 +21,7 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
-    createOrUpdateData(values);
+    createOrUpdateValues(values);
     setValues(defaultValues);
     e.target.reset();
   };
