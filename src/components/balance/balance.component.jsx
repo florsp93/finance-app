@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { getItemsFromDatabase } from "../../utils/firebase.utils";
+
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -8,6 +10,10 @@ const formatter = new Intl.NumberFormat("en-US", {
 
 const Balance = () => {
   const [balance, setBalance] = useState([]);
+
+  useEffect(() => {
+    getItemsFromDatabase();
+  }, []);
 
   return (
     <div className="mt-4">
@@ -19,35 +25,39 @@ const Balance = () => {
       </div>
 
       <div className="">
-        {balance.map((item, i) => {
-          if (item.tipo === "earn") {
-            return (
-              <li key={i + 1} className="">
-                <p className="">{item.motivo}</p>
-                <p className="">{formatter.format(item.importe)}</p>
-                <button
-                  type="submit"
-                  className="btn btn-light btn-sm"
-                  value={i}
-                >
-                  X
-                </button>
-              </li>
-            );
-          }
-          return (
-            <li key={i + 1} className="">
-              <p className="">{item.motivo}</p>
-              <p className="">{formatter.format(item.importe)}</p>
-              <button type="submit" className="" value={i}>
-                X
-              </button>
-            </li>
-          );
-        })}
+        <button onClick={getItemsFromDatabase}>test</button>
+
+        {/* {balance.map((item, i) => {
+        
+        })} */}
       </div>
     </div>
   );
 };
 
 export default Balance;
+
+// if (item.tipo === "earn") {
+//   return (
+//     <li key={i + 1} className="">
+//       <p className="">{item.motivo}</p>
+//       <p className="">{formatter.format(item.importe)}</p>
+//       <button
+//         type="submit"
+//         className="btn btn-light btn-sm"
+//         value={i}
+//       >
+//         X
+//       </button>
+//     </li>
+//   );
+// }
+// return (
+//   <li key={i + 1} className="">
+//     <p className="">{item.motivo}</p>
+//     <p className="">{formatter.format(item.importe)}</p>
+//     <button type="submit" className="" value={i}>
+//       X
+//     </button>
+//   </li>
+// );
