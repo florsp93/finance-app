@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
 
-function App() {
+import Form from "./components/form/form.component";
+import Total from "./components/total/total.component";
+import Balance from "./components/balance/balance.component";
+
+const getEntriesFromStorage = () =>
+  JSON.parse(window.localStorage.getItem("journalEntries"));
+
+const App = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    let valores = getEntriesFromStorage();
+    setItems(valores);
+  }, []);
+
+  const handleNewItem = (e) => {
+    const almacenado = getEntriesFromStorage();
+    setItems(almacenado);
+  };
+  const seBorroItem = (e) => {
+    setItems(e);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <p className="lato300" style={{ letterSpacing: "1px" }}>
+        con Financeapp podras llevar el control de tus ganancias y gastos de
+        forma sencilla.
+      </p>
+      <Total totalItems={items} />
+      <Form onNewItem={handleNewItem} />
+      <Balance balance={items} itemBorrado={seBorroItem} />
     </div>
   );
-}
+};
 
 export default App;
