@@ -7,17 +7,18 @@
     text-align: end;
 }
 
-.balance-values {
+.balance-item {
     margin-bottom: 10px;
     padding: 0 10px;
 }
 
-.balance-values h3 {
+.balance-item h3 {
     margin: 10px 0;
 }
 
-.balance-box {
+.balance-items-box {
     max-width: 80%;
+    margin: 0 auto;
 }
 
 .balance-head {

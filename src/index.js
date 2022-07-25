@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { ValuesProvider } from "./context/values.context";
+import { ItemsProvider } from "./context/items.context";
 
 import "./components/balance/balance.styles.css";
 import "./App.css";
@@ -12,9 +12,9 @@ import "./App.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ValuesProvider>
+    <ItemsProvider>
       <App />
-    </ValuesProvider>
+    </ItemsProvider>
   </React.StrictMode>
 );
 

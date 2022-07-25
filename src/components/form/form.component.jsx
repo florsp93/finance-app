@@ -1,28 +1,30 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import FormInput from "../form-input/form-input.component";
-import { createOrUpdateValues } from "../../utils/firebase.utils";
 
-const defaultValues = {
+import { ItemsContext } from "../../context/items.context";
+
+const defaulNewtItemValues = {
   motive: "",
   type: "",
   amount: "",
 };
 
 const Form = () => {
-  const [values, setValues] = useState(defaultValues);
-  const { motive, amount } = values;
+  const [newItemValues, setNewItemValues] = useState(defaulNewtItemValues);
+  const { motive, amount } = newItemValues;
+  const { addItemToBalance } = useContext(ItemsContext);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setValues({ ...values, [name]: value });
+    setNewItemValues({ ...newItemValues, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
-    createOrUpdateValues(values);
-    setValues(defaultValues);
+    console.log(newItemValues);
+    addItemToBalance(newItemValues);
+    setNewItemValues(defaulNewtItemValues);
     e.target.reset();
   };
 

@@ -1,17 +1,18 @@
 import { useEffect, useState, useContext } from "react";
 
-import { ValuesContext } from "../../context/values.context";
+import { ItemsContext } from "../../context/items.context";
 
 const Balance = () => {
-  const values = useContext(ValuesContext);
-  const [valuesToShow, setValuesToShow] = useState({});
+  const { items } = useContext(ItemsContext);
+  const [itemsToShow, setItemsToShow] = useState({});
 
   useEffect(() => {
-    setValuesToShow(values);
-  }, [values, valuesToShow]);
+    console.log("balance useEffect");
+    setItemsToShow(items);
+  }, [items, itemsToShow]);
 
   return (
-    <div className="balance-box">
+    <div className="balance-items-box">
       <div className="balance-head">
         <h2 className="">Balance</h2>
         <button type="submit" className="btn">
@@ -19,14 +20,14 @@ const Balance = () => {
         </button>
       </div>
       <div className="balance-body">
-        {Object.keys(valuesToShow).map((key, i) => {
+        {Object.keys(itemsToShow).map((key, i) => {
           //key => collection key
-          //valuesToShow[key] => object data
-          const { motive, amount, type } = valuesToShow[key];
+          //ItemsToShow[key] => object data
+          const { motive, amount, type } = itemsToShow[key];
           return (
             <div
               key={i}
-              className={`balance-values ${type === "earn" ? "earn" : "lost"}`}
+              className={`balance-item ${type === "earn" ? "earn" : "lost"}`}
             >
               <h3>
                 {motive} | {amount} | {type}
