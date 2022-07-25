@@ -10,6 +10,7 @@ import {
   getDocs,
   collection,
   query,
+  orderBy,
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -28,17 +29,36 @@ const analytics = getAnalytics(app);
 export const db = getFirestore();
 
 export const createOrUpdateValues = async (itemToAdd) => {
+  const createdAt = Date();
   console.log(itemToAdd);
-  const docRef = await addDoc(collection(db, "flor"), itemToAdd); //genera automaticamente el ID del documento
+  const itemAndDate = { ...itemToAdd, createdAt: createdAt };
+  const docRef = await addDoc(collection(db, "flor"), itemAndDate); //genera automaticamente el ID del documento
   console.log("Document written with ID: ", docRef.id);
 };
 
 export const getValuesFromDatabase = async () => {
   const collectionRef = collection(db, "flor");
-  const querySnapshot = await getDocs(collectionRef);
+  const firebaseQuery = query(collectionRef, orderBy("createdAt", "desc"));
+
+  const querySnapshot = await getDocs(firebaseQuery);
   const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
     acc[docSnapshot.id] = docSnapshot.data();
+    console.log(docSnapshot.data().motive, " ", docSnapshot.data().createdAt);
     return acc;
   }, {});
+  return categoryMap;
+};
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, "categories");
+  const q = query(collectionRef, orderBy("name", "desc"));
+
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
   return categoryMap;
 };

@@ -66,7 +66,7 @@ const Form = () => {
           <label htmlFor="lost">Perdida</label>
         </div>
         <br />
-        <button type="submit" className="">
+        <button type="submit" className="btn">
           Agregar
         </button>
       </form>

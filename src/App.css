@@ -1,0 +1,26 @@
+/* TODOS LOS BUTTONS DE LA APP */
+.btn {
+  background: #3498db;
+  color: #ffffff;
+  max-height: 40px;
+  text-transform: uppercase;
+  appearance: none;
+    -webkit-appearance: none;
+  font-family: sans-serif;
+  cursor: pointer;
+  padding: 12px;
+  min-width: 100px;
+  border: 0px;
+    -webkit-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+     transition: background-color 100ms linear;
+}
+
+.btn:focus, .btn.focus {
+  outline: 0;
+}
+
+.btn:hover {
+  background: #2980b9;
+  color: #ffffff;
+}

@@ -1,0 +1,32 @@
+.earn {
+    background-image: linear-gradient(to right, green,white);
+}
+
+.lost {
+    background-image: linear-gradient(to right, white, red);
+    text-align: end;
+}
+
+.balance-values {
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.balance-values h3 {
+    margin: 10px 0;
+}
+
+.balance-box {
+    max-width: 80%;
+}
+
+.balance-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.balance-body {
+    display: flex;
+    flex-direction: column;
+}
