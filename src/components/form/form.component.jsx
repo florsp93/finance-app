@@ -7,7 +7,7 @@ import { ItemsContext } from "../../context/items.context";
 const defaulNewtItemValues = {
   motive: "",
   type: "",
-  amount: "",
+  amount: "0",
 };
 
 const Form = () => {
@@ -50,26 +50,22 @@ const Form = () => {
           required
         />
         <div className="radios-div">
-          <div>
-            <input
-              onChange={handleChange}
-              type="radio"
-              id="earn"
-              name="type"
-              value="earn"
-            />
-            <label htmlFor="earn">Ganancia</label>
-          </div>
-          <div>
-            <input
-              onChange={handleChange}
-              type="radio"
-              id="lost"
-              name="type"
-              value="lost"
-            />
-            <label htmlFor="lost">Perdida</label>
-          </div>
+          <input
+            onChange={handleChange}
+            type="radio"
+            id="earn"
+            name="type"
+            value="earn"
+          />
+          <label htmlFor="earn">Ganancia</label>
+          <input
+            onChange={handleChange}
+            type="radio"
+            id="lost"
+            name="type"
+            value="lost"
+          />
+          <label htmlFor="lost">Perdida</label>
         </div>
         <br />
         <button type="submit" className="btn">

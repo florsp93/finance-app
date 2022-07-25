@@ -9,6 +9,7 @@ const Balance = () => {
   useEffect(() => {
     console.log("balance useEffect");
     setItemsToShow(items);
+    console.log(items);
   }, [items, itemsToShow]);
 
   return (
