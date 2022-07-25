@@ -1,5 +1,5 @@
 const FormInput = ({ label, ...otherProps }) => (
-  <div>
+  <div className="input-label-div">
     {label && <label>{label}</label>}
     <br />
     <input {...otherProps} />

@@ -1,0 +1,14 @@
+.form{    
+    margin: 0 auto;
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.radios-div {
+    margin: 10px 0;
+    width: 70%;
+    display: flex; 
+    justify-content: space-around;
+}

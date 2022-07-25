@@ -29,43 +29,47 @@ const Form = () => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
+    <div>
+      <form onSubmit={handleSubmit} className="form">
         <FormInput
-          label={"Motivo"}
+          label={"MOTIVO"}
           onChange={handleChange}
           value={motive}
-          className=""
+          className="form-input"
           type="text"
           name="motive"
           required
         />
         <FormInput
-          label={"Importe"}
+          label={"IMPORTE"}
           onChange={handleChange}
           value={amount}
-          className=""
+          className="form-input"
           type="number"
           name="amount"
           required
         />
-        <div>
-          <input
-            onChange={handleChange}
-            type="radio"
-            id="earn"
-            name="type"
-            value="earn"
-          />
-          <label htmlFor="earn">Ganancia</label>
-          <input
-            onChange={handleChange}
-            type="radio"
-            id="lost"
-            name="type"
-            value="lost"
-          />
-          <label htmlFor="lost">Perdida</label>
+        <div className="radios-div">
+          <div>
+            <input
+              onChange={handleChange}
+              type="radio"
+              id="earn"
+              name="type"
+              value="earn"
+            />
+            <label htmlFor="earn">Ganancia</label>
+          </div>
+          <div>
+            <input
+              onChange={handleChange}
+              type="radio"
+              id="lost"
+              name="type"
+              value="lost"
+            />
+            <label htmlFor="lost">Perdida</label>
+          </div>
         </div>
         <br />
         <button type="submit" className="btn">

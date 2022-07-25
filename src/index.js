@@ -6,7 +6,9 @@ import reportWebVitals from "./reportWebVitals";
 
 import { ItemsProvider } from "./context/items.context";
 
+import "./components/form-input/form-input.styles.css";
 import "./components/balance/balance.styles.css";
+import "./components/form/form.styles.css";
 import "./App.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
