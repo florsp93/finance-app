@@ -1,0 +1,17 @@
+.total-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    color: white;
+}
+.total-title{
+    margin: 10px 0px;
+    font-size:larger
+}
+
+.total-amount{
+    margin: 10px 0px;
+    font-size: larger;
+
+}

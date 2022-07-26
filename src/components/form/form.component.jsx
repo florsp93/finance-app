@@ -7,7 +7,7 @@ import { ItemsContext } from "../../context/items.context";
 const defaulNewtItemValues = {
   motive: "",
   type: "",
-  amount: "0",
+  amount: "",
 };
 
 const Form = () => {
@@ -32,7 +32,7 @@ const Form = () => {
     <div>
       <form onSubmit={handleSubmit} className="form">
         <FormInput
-          label={"MOTIVO"}
+          label={"Motivo"}
           onChange={handleChange}
           value={motive}
           className="form-input"
@@ -41,7 +41,7 @@ const Form = () => {
           required
         />
         <FormInput
-          label={"IMPORTE"}
+          label={"Importe"}
           onChange={handleChange}
           value={amount}
           className="form-input"

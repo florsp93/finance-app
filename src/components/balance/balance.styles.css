@@ -1,9 +1,9 @@
 .earn {
-    background-image: linear-gradient(to right, green,white);
+    background-image: linear-gradient(to right, #14A4BC,white);
 }
 
 .lost {
-    background-image: linear-gradient(to right, white, red);
+    background-image: linear-gradient(to right, white,#F44D4D);
     text-align: end;
 }
 
